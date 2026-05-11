@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <!--<link rel="stylesheet" type="text/css"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+    >-->
+    <!--<link rel="stylesheet" type="text/css" th:href="@{/style.css}">-->
+    <title>Spring boot test</title>
+</head>
+<body>
+<div>
+    <a th:href="@{/}">로고</a>
+    <a th:href="@{/member/login}">로그인</a>
+    <a th:href="@{/member/register}">회원가입</a>
+</div>
+<!-- 기본 템플릿 안에 삽입될 내용 Start -->
+<th:block layout:fragment="content">
+</th:block>
+<!-- 기본 템플릿 안에 삽입될 내용 End -->
+</body>
+</html>
