@@ -64,4 +64,14 @@ public class ArticleController {
         }
         return "redirect:/article/detail/" + id;
     }
+
+    @PostMapping("/remove/{id}")
+    public String remove(@PathVariable int id){
+        try{
+            articleService.remove(id);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return "redirect:/article/list";
+    }
 }

@@ -19,6 +19,10 @@
         <td th:text="${#temporals.format(article.createDate, 'yyyy-MM-dd HH:mm')}"></td>
     </tr>
 </table>
-<a th:href="@{/article/list}">목록</a>&nbsp;<a th:href="@{'/article/modify/' + ${article.id}}">수정</a>
+<a th:href="@{/article/list}">목록</a>
+<a th:href="@{'/article/modify/' + ${article.id}}">수정</a>
+<form th:action="@{'/article/remove/' + ${id}}" method="post">
+    <button type="submit">삭제</button>
+</form>
 </body>
 </html>

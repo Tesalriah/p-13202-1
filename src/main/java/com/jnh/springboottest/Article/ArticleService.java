@@ -37,4 +37,8 @@ public class ArticleService {
 
         return articleRepository.save(article);
     }
+
+    public void remove(int id) throws Exception{
+        articleRepository.deleteById(id);
+    }
 }
