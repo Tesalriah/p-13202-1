@@ -22,8 +22,11 @@ public class ArticleService {
         return article.orElse(null);
     }
 
-    public List<Article> readAll() {
-        return articleRepository.findAllByOrderByIdDesc();
+    public List<Article> readAll(String keyword) {
+        if (keyword == null || keyword.isBlank()) {
+            return articleRepository.findAll();
+        }
+        return articleRepository.findByTitleContainingOrContentContaining(keyword, keyword);
     }
 
     public Article modify(int id, String title, String content) throws Exception{

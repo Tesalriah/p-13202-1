@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface ArticleRepository extends JpaRepository<Article, Integer> {
     List<Article> findAllByOrderByIdDesc();
+    List<Article> findByTitleContainingOrContentContaining(String title, String content);
 }

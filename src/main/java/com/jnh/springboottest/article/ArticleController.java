@@ -19,9 +19,10 @@ public class ArticleController {
     private final MemberService memberService;
 
     @GetMapping("/list")
-    public String showList(Model model){
-        List<Article> articleList = articleService.readAll();
+    public String showList(Model model, @RequestParam(required = false) String keyword) {
+        List<Article> articleList = articleService.readAll(keyword);
         model.addAttribute("articleList", articleList);
+        model.addAttribute("keyword", keyword);
         return "article_list";
     }
 

@@ -1,6 +1,9 @@
 <html layout:decorate="~{layout}">
 <div layout:fragment="content" class="container my-3">
-<table>
+    <form th:action="@{/article/list}" method="get">
+        <input type="text" name="keyword" th:value="${keyword}">
+        <button type="submit">검색</button>
+    </form>
     <table border="1">
         <thead>
         <tr>
@@ -19,7 +22,6 @@
         </tr>
         </tbody>
     </table>
-</table>
-<a href="/article/create" sec:authorize="isAuthenticated()">등록</a>
+    <a href="/article/create" sec:authorize="isAuthenticated()">등록</a>
 </div>
 </html>
