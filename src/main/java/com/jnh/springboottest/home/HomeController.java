@@ -1,4 +1,4 @@
-package com.jnh.springboottest.Home;
+package com.jnh.springboottest.home;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

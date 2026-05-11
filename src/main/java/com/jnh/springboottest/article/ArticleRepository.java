@@ -1,4 +1,4 @@
-package com.jnh.springboottest.Article;
+package com.jnh.springboottest.article;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
