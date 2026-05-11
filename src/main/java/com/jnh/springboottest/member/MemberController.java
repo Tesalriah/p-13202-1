@@ -14,8 +14,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.Optional;
-
 @RequiredArgsConstructor
 @RequestMapping("/member")
 @Controller
@@ -56,7 +54,7 @@ public class MemberController {
             return "member_create";
         }
 
-        Optional<Member> opMember = memberService.findByUsername(registerForm.getUsername());
+        Member opMember = memberService.findByUsername(registerForm.getUsername());
 
         try {
             memberService.create(registerForm.getUsername(), registerForm.getPassword(), registerForm.getNick());

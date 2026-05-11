@@ -1,23 +1,25 @@
 <html layout:decorate="~{layout}">
 <div layout:fragment="content" class="container my-3">
-<table>
-    <tr>
-        <td>제목</td>
-        <td th:text="${article.title}"></td>
-    </tr>
-    <tr>
-        <td>내용</td>
-        <td th:text="${article.content}"></td>
-    </tr>
-    <tr>
-        <td>작성일</td>
-        <td th:text="${#temporals.format(article.createDate, 'yyyy-MM-dd HH:mm')}"></td>
-    </tr>
-</table>
-<a th:href="@{/article/list}">목록</a>
-<a th:href="@{'/article/modify/' + ${article.id}}">수정</a>
-<form th:action="@{'/article/remove/' + ${id}}" method="post">
-    <button type="submit">삭제</button>
-</form>
+    <table>
+        <tr>
+            <td>제목</td>
+            <td th:text="${article.title}"></td>
+        </tr>
+        <tr>
+            <td>내용</td>
+            <td th:text="${article.content}"></td>
+        </tr>
+        <tr>
+            <td>작성일</td>
+            <td th:text="${#temporals.format(article.createDate, 'yyyy-MM-dd HH:mm')}"></td>
+        </tr>
+    </table>
+    <a th:href="@{/article/list}">목록</a>
+    <div th:if="${#authentication.name == article.member?.username}">
+        <a th:href="@{/article/modify/{id}(id=${article.id})}">수정</a>
+        <form th:action="@{/article/remove/{id}(id=${article.id})}" method="post">
+            <button type="submit">삭제</button>
+        </form>
+    </div>
 </div>
 </html>

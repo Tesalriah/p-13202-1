@@ -1,5 +1,6 @@
 package com.jnh.springboottest.article;
 
+import com.jnh.springboottest.member.Member;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -11,8 +12,8 @@ import java.util.Optional;
 public class ArticleService {
     private final ArticleRepository articleRepository;
 
-    public Article write(String title, String content) {
-        Article article = new Article(title, content);
+    public Article write(String title, String content, Member member) {
+        Article article = new Article(title, content, member);
         return articleRepository.save(article);
     }
 
@@ -36,4 +37,5 @@ public class ArticleService {
     public void remove(int id) throws Exception{
         articleRepository.deleteById(id);
     }
+
 }

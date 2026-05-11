@@ -4,8 +4,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
-
 @RequiredArgsConstructor
 @Service
 public class MemberService {
@@ -19,7 +17,7 @@ public class MemberService {
         return this.memberRepository.save(member);
     }
 
-    public Optional findByUsername(String username) {
-        return memberRepository.findByUsername(username);
+    public Member findByUsername(String username){
+        return memberRepository.findByUsername(username).orElseThrow();
     }
 }

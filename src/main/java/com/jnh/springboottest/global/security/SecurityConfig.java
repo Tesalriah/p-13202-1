@@ -26,6 +26,10 @@ public class SecurityConfig {
                         .loginProcessingUrl("/member/login")
                         .defaultSuccessUrl("/")
                 )
+                .authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/article/create").authenticated() // 로그인 필요
+                        .requestMatchers("/**").permitAll()
+                )
                 .csrf(csrf -> csrf
                         // H2 콘솔 접근 시 CSRF 예외 처리
                         .ignoringRequestMatchers("/h2-console/**")
