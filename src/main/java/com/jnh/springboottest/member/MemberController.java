@@ -51,6 +51,11 @@ public class MemberController {
             return "member_create";
         }
 
+        if (!registerForm.getPassword().equals(registerForm.getPasswordCheck())) {
+            bindingResult.rejectValue("passwordCheck", "passwordMismatch", "비밀번호가 일치하지 않습니다.");
+            return "member_create";
+        }
+
         Optional<Member> opMember = memberService.findByUsername(registerForm.getUsername());
 
         try {
@@ -68,4 +73,22 @@ public class MemberController {
 
         return "redirect:/";
     }
+
+
+    @Getter
+    @Setter
+    public static class LoginForm{
+        @Size(min=3, max= 25)
+        @NotBlank(message = "ID를 입력해주세요.")
+        private String username;
+
+        @NotBlank(message = "패스워드를 입력해주세요.")
+        private String password;
+    }
+
+    @GetMapping("/login")
+    public String showLogin() {
+        return "member_login";
+    }
+
 }
