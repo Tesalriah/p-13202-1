@@ -1,3 +1,5 @@
+import org.gradle.kotlin.dsl.implementation
+
 plugins {
 	java
 	id("org.springframework.boot") version "4.0.6"
@@ -35,6 +37,7 @@ dependencies {
     implementation("nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect")
     implementation("org.springframework.boot:spring-boot-starter-validation")
     implementation ("org.springframework.boot:spring-boot-starter-security")
+    implementation ("org.thymeleaf.extras:thymeleaf-extras-springsecurity6")
 }
 
 tasks.withType<Test> {
